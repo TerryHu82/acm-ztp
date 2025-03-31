@@ -2,10 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 generators:
-- example-sno.yaml
+- sno1.yaml
 # - example-3node.yaml
 # - example-standard.yaml
 
 resources:
-- example-sno-secret.yaml
+- sno1-secret.yaml
 
