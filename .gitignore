@@ -1,0 +1,6 @@
+# Sensitive and build artifacts
+pull-secret.json
+*.pem
+deployment/
+operators/
+out-bak/
