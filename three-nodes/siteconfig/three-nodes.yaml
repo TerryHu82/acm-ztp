@@ -41,7 +41,7 @@ spec:
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
         #  filePath: "example-hw.profile"
-        bmcAddress: "idrac-virtualmedia://dell-r640-072-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia+https://dell-r640-072-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "three-nodes-bmc-secret"
         bootMACAddress: "78:ac:44:3b:3e:74"
