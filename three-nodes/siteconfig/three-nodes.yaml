@@ -28,7 +28,7 @@ spec:
       - cidr: "10.128.0.0/14"
         hostPrefix: 23
     machineNetwork:
-      - cidr: "10.0.56.0/24"
+      - cidr: "10.6.56.0/24"
     serviceNetwork:
       - "172.30.0.0/16"
     apiVIP: 10.6.56.7
