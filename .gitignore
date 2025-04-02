@@ -1,6 +1,9 @@
 # Sensitive and build artifacts
 pull-secret.json
 *.pem
-deployment/
 operators/
 out-bak/
+sno1/deployment
+three-nodes/deployment
+find_free_ips.sh
+free_ips.txt
