@@ -9,8 +9,8 @@ spec:
     name: "assisted-deployment-pull-secret"
   clusters:
   - clusterName: "three-nodes"
-    crTemplate:
-      AgentClusterInstall: agentclusterinstall.yaml
+    crTemplates:
+      AgentClusterInstall: "agentclusterinstall.yaml"
     nodes:
       - hostName: "dell-r640-072.three-nodes.terryhu.cc"
         role: "master"

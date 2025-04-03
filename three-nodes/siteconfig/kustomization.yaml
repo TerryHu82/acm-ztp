@@ -5,4 +5,3 @@ generators:
 
 resources:
 - three-nodes-secret.yaml
-- agentclusterinstall.yaml

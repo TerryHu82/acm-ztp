@@ -1,32 +1,32 @@
 apiVersion: extensions.hive.openshift.io/v1beta1
 kind: AgentClusterInstall
 metadata:
-    annotations:
-        agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
-        argocd.argoproj.io/sync-wave: "1"
-        ran.openshift.io/ztp-gitops-generated: '{}'
-    name: three-nodes
-    namespace: three-nodes
+  annotations:
+    agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
+    argocd.argoproj.io/sync-wave: "1"
+    ran.openshift.io/ztp-gitops-generated: '{}'
+  name: three-nodes
+  namespace: three-nodes
 spec:
-    apiVIP: 10.0.78.150
-    clusterDeploymentRef:
-        name: three-nodes
-    imageSetRef:
-        name: openshift-4.18
-    ingressVIP: 10.0.78.150
-    manifestsConfigMapRef:
-        name: three-nodes
-    networking:
-        clusterNetwork:
-            - cidr: 10.128.0.0/14
-              hostPrefix: 23
-        machineNetwork:
-            - cidr: 10.6.56.0/24
-        serviceNetwork:
-            - 172.30.0.0/16
-        userManagedNetworking: true
-    provisionRequirements:
-        controlPlaneAgents: 3
-    sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDR0CfciRfP6zx3M1sdPRlIPKmv+YuI2XeazmjbEiafmgOgQ70JVjaxV0IzczVeJ5cZxf2m8ZLh/LridvMIoAV4rQofiopgdPnYafnBqlCY1vnlFnxYN6dDpEz8tgIULOkpILHp1C77Tjiq0S/EAMA02ShA2wrzR7LVAJl967Ct9zke0oWwahYynxNp8UTtUMJeq6xGfjZEjdTRF3LPmgmeb9ErrZ9+fFTBLh5LU4hW91+rc+3bEGi4QgknA7TkjqslBfycEuAqIGcfPIjRoSP9iMv274ijEOt7SHENpQQ+ar/sfA8N0E94gqBVvOHAh/sfKo7hC6HoWjm9DnP4ngfOCgKMlB8v4/xRpGgQ8ACFNIsIkFU+wGJ1DvmgrMqMqGD0VKakW8/tjgKLGlPMLyHHbLlOBb+xoMNkqRAtdAgkLLFhvqlET/fmmhBduOIP+bEdMgQ5Rga/PEE9ncsCVdbhOfMUKCHOcE/ELbV7nQGOuig7d61zfuB6GxuU1jvIRl8= root@bastion-dsal.terryhu.cc
-    additionalNTPSources:
-      - 10.0.79.130
+  apiVIP: 10.0.78.150
+  clusterDeploymentRef:
+    name: three-nodes
+  imageSetRef:
+    name: openshift-4.18
+  ingressVIP: 10.0.78.150
+  manifestsConfigMapRef:
+    name: three-nodes
+  networking:
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: 10.6.56.0/24
+    serviceNetwork:
+      - 172.30.0.0/16
+    userManagedNetworking: true
+  provisionRequirements:
+    controlPlaneAgents: 3
+  sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDR0CfciRfP6zx3M1sdPRlIPKmv+YuI2XeazmjbEiafmgOgQ70JVjaxV0IzczVeJ5cZxf2m8ZLh/LridvMIoAV4rQofiopgdPnYafnBqlCY1vnlFnxYN6dDpEz8tgIULOkpILHp1C77Tjiq0S/EAMA02ShA2wrzR7LVAJl967Ct9zke0oWwahYynxNp8UTtUMJeq6xGfjZEjdTRF3LPmgmeb9ErrZ9+fFTBLh5LU4hW91+rc+3bEGi4QgknA7TkjqslBfycEuAqIGcfPIjRoSP9iMv274ijEOt7SHENpQQ+ar/sfA8N0E94gqBVvOHAh/sfKo7hC6HoWjm9DnP4ngfOCgKMlB8v4/xRpGgQ8ACFNIsIkFU+wGJ1DvmgrMqMqGD0VKakW8/tjgKLGlPMLyHHbLlOBb+xoMNkqRAtdAgkLLFhvqlET/fmmhBduOIP+bEdMgQ5Rga/PEE9ncsCVdbhOfMUKCHOcE/ELbV7nQGOuig7d61zfuB6GxuU1jvIRl8= root@bastion-dsal.terryhu.cc
+  additionalNTPSources:
+    - 10.0.79.130
