@@ -1,0 +1,30 @@
+apiVersion: extensions.hive.openshift.io/v1beta1
+kind: AgentClusterInstall
+metadata:
+  name: "{{ .Cluster.ClusterName }}"
+  namespace: "{{ .Cluster.ClusterName }}"
+  annotations:
+    agent-install.openshift.io/install-config-overrides: "{{ .Cluster.NetworkType }}"
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  clusterDeploymentRef:
+    name: "{{ .Cluster.ClusterName }}"
+  holdInstallation: "{{ .Cluster.HoldInstallation }}"
+  imageSetRef:
+    name: "{{ .Cluster.ClusterImageSetNameRef }}"
+  apiVIP: 10.0.78.150
+  ingressVIP: 10.0.78.150
+  apiVIPs: 10.0.78.150
+  ingressVIPs: 10.0.78.150
+  networking:
+    clusterNetwork: "{{ .Cluster.ClusterNetwork }}"
+    machineNetwork: "{{ .Cluster.MachineNetwork }}"
+    serviceNetwork: "{{ .Cluster.ServiceNetwork }}"
+    userManagedNetworking: true
+  provisionRequirements:
+    controlPlaneAgents: "{{ .Cluster.NumMasters }}"
+    workerAgents: "{{ .Cluster.NumWorkers }}"
+  proxy: "{{ .Cluster.Proxy }}"
+  sshPublicKey: "{{ .Site.SshPublicKey }}"
+  manifestsConfigMapRefs:
+    "{{ .Cluster.ManifestsConfigMapRefs }}"
