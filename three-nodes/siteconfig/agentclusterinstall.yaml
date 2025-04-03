@@ -14,8 +14,6 @@ spec:
     name: "{{ .Cluster.ClusterImageSetNameRef }}"
   apiVIP: 10.0.78.150
   ingressVIP: 10.0.78.150
-  apiVIPs: 10.0.78.150
-  ingressVIPs: 10.0.78.150
   networking:
     clusterNetwork: "{{ .Cluster.ClusterNetwork }}"
     machineNetwork: "{{ .Cluster.MachineNetwork }}"
