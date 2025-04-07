@@ -11,7 +11,6 @@ spec:
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDR0CfciRfP6zx3M1sdPRlIPKmv+YuI2XeazmjbEiafmgOgQ70JVjaxV0IzczVeJ5cZxf2m8ZLh/LridvMIoAV4rQofiopgdPnYafnBqlCY1vnlFnxYN6dDpEz8tgIULOkpILHp1C77Tjiq0S/EAMA02ShA2wrzR7LVAJl967Ct9zke0oWwahYynxNp8UTtUMJeq6xGfjZEjdTRF3LPmgmeb9ErrZ9+fFTBLh5LU4hW91+rc+3bEGi4QgknA7TkjqslBfycEuAqIGcfPIjRoSP9iMv274ijEOt7SHENpQQ+ar/sfA8N0E94gqBVvOHAh/sfKo7hC6HoWjm9DnP4ngfOCgKMlB8v4/xRpGgQ8ACFNIsIkFU+wGJ1DvmgrMqMqGD0VKakW8/tjgKLGlPMLyHHbLlOBb+xoMNkqRAtdAgkLLFhvqlET/fmmhBduOIP+bEdMgQ5Rga/PEE9ncsCVdbhOfMUKCHOcE/ELbV7nQGOuig7d61zfuB6GxuU1jvIRl8= root@bastion-dsal.terryhu.cc"
   clusters:
   - clusterName: "three-nodes"
-    networkType: "OVNKubernetes"
     # extraManifestPath: three-nodes-extra-manifest
     clusterLabels:
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
@@ -24,15 +23,8 @@ spec:
       # ../policygentemplates/example-multinode-site.yaml will apply to all clusters with 'sites: "example-multinode"'
       # Normally this should match or contain the cluster name so it only applies to a single cluster
       sites : "three-nodes"
-    clusterNetwork:
-      - cidr: "10.128.0.0/14"
-        hostPrefix: 23
-    machineNetwork:
-      - cidr: "10.6.56.0/24"
-    serviceNetwork:
-      - "172.30.0.0/16"
-    apiVIP: 10.6.56.7
-    ingressVIP: 10.6.56.8
+    crTemplates:
+      AgentClusterInstall: "agentclusterinstall.yaml"
     additionalNTPSources:
       - 10.0.79.130
     nodes:
