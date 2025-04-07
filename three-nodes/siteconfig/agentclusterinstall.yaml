@@ -15,7 +15,11 @@ spec:
   loadBalancer:
     type: UserManaged
   apiVIP: 10.6.56.140
+  apiVIPs:
+    - 10.6.56.140
   ingressVIP: 10.6.56.140
+  ingressVIPs:
+    - 10.6.56.140    
   clusterDeploymentRef:
     name: three-nodes
   imageSetRef:
