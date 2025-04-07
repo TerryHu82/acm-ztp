@@ -3,7 +3,6 @@ kind: AgentClusterInstall
 metadata:       
     argocd.argoproj.io/sync-wave: "1"
     agent-install.openshift.io/install-config-overrides: '{"networking":{"networkType":"OVNKubernetes"}}'
-    ran.openshift.io/ztp-gitops-generated: '{}'
   name: three-nodes
   namespace: three-nodes
 spec:
@@ -29,7 +28,6 @@ spec:
       - cidr: 10.6.56.0/24
     serviceNetwork:
       - 172.30.0.0/16
-    networkType: OVNKubernetes
     userManagedNetworking: false
   provisionRequirements:
     controlPlaneAgents: 3
