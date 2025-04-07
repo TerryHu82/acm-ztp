@@ -3,5 +3,3 @@ kind: Kustomization
 generators:
 - three-nodes.yaml
 
-resources:
-- three-nodes-secret.yaml
