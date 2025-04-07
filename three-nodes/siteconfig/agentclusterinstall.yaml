@@ -6,7 +6,8 @@ metadata:
       {
         "networking": {
           "networkType": "OVNKubernetes"
-        }    
+        }
+       }        
     argocd.argoproj.io/sync-wave: "1"
     ran.openshift.io/ztp-gitops-generated: '{}'
   name: three-nodes
