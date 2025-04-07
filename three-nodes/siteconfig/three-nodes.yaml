@@ -1,0 +1,164 @@
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "three-nodes"
+  namespace: "three-nodes"
+spec:
+  baseDomain: "terryhu.cc"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret"
+  clusterImageSetNameRef: "openshift-4.18" 
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDR0CfciRfP6zx3M1sdPRlIPKmv+YuI2XeazmjbEiafmgOgQ70JVjaxV0IzczVeJ5cZxf2m8ZLh/LridvMIoAV4rQofiopgdPnYafnBqlCY1vnlFnxYN6dDpEz8tgIULOkpILHp1C77Tjiq0S/EAMA02ShA2wrzR7LVAJl967Ct9zke0oWwahYynxNp8UTtUMJeq6xGfjZEjdTRF3LPmgmeb9ErrZ9+fFTBLh5LU4hW91+rc+3bEGi4QgknA7TkjqslBfycEuAqIGcfPIjRoSP9iMv274ijEOt7SHENpQQ+ar/sfA8N0E94gqBVvOHAh/sfKo7hC6HoWjm9DnP4ngfOCgKMlB8v4/xRpGgQ8ACFNIsIkFU+wGJ1DvmgrMqMqGD0VKakW8/tjgKLGlPMLyHHbLlOBb+xoMNkqRAtdAgkLLFhvqlET/fmmhBduOIP+bEdMgQ5Rga/PEE9ncsCVdbhOfMUKCHOcE/ELbV7nQGOuig7d61zfuB6GxuU1jvIRl8= root@bastion-dsal.terryhu.cc"
+  clusters:
+  - clusterName: "three-nodes"
+    networkType: "OVNKubernetes"
+    # extraManifestPath: three-nodes-extra-manifest
+    clusterLabels:
+      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
+      du-profile: "latest"
+      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
+      # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
+      common: true
+      # ../policygentemplates/group-du-3node-ranGen.yaml will apply to all clusters with 'group-du-3node: ""'
+      group-du-3node: ""
+      # ../policygentemplates/example-multinode-site.yaml will apply to all clusters with 'sites: "example-multinode"'
+      # Normally this should match or contain the cluster name so it only applies to a single cluster
+      sites : "three-nodes"
+    clusterNetwork:
+      - cidr: "10.128.0.0/14"
+        hostPrefix: 23
+    machineNetwork:
+      - cidr: "10.6.56.0/24"
+    serviceNetwork:
+      - "172.30.0.0/16"
+    apiVIP: 10.6.56.7
+    ingressVIP: 10.6.56.8
+    additionalNTPSources:
+      - 10.0.79.130
+    nodes:
+      - hostName: "dell-r640-072.three-nodes.terryhu.cc"
+        role: "master"
+        # Optionally; This can be used to configure desired BIOS setting on a host:
+        #biosConfigRef:
+        #  filePath: "example-hw.profile"
+        bmcAddress: "idrac-virtualmedia+https://dell-r640-072-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "three-nodes-bmc-secret"
+        bootMACAddress: "78:ac:44:3b:3e:74"
+        # Use UEFISecureBoot to enable secure boot
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/sda
+        nodeNetwork:
+          interfaces:
+            - name: eno1
+              macAddress: "78:ac:44:3b:3e:74"
+          config:
+            interfaces:
+              - name: eno1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                    - ip: 10.6.56.110
+                      prefix-length: 24
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                search:
+                  - redhat.com
+                server:
+                  - 10.11.5.160
+                  - 10.2.70.215
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-interface: eno1
+                  next-hop-address: 10.6.56.254
+                  table-id: 254
+      - hostName: "dell-r640-075.three-nodes.terryhu.cc"
+        role: "master"
+        # Optionally; This can be used to configure desired BIOS setting on a host:
+        #biosConfigRef:
+        #  filePath: "example-hw.profile"
+        bmcAddress: "idrac-virtualmedia://dell-r640-075-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "three-nodes-bmc-secret"
+        bootMACAddress: "78:ac:44:3b:39:c8"
+        # Use UEFISecureBoot to enable secure boot
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/sda
+        nodeNetwork:
+          interfaces:
+            - name: eno1
+              macAddress: "78:ac:44:3b:39:c8"
+          config:
+            interfaces:
+              - name: eno1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                    - ip: 10.6.56.113
+                      prefix-length: 24
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                search:
+                  - redhat.com
+                server:
+                  - 10.11.5.160
+                  - 10.2.70.215
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-interface: eno1
+                  next-hop-address: 10.6.56.254
+                  table-id: 254
+      - hostName: "dell-r640-008.three-nodes.terryhu.cc"
+        role: "master"
+        # Optionally; This can be used to configure desired BIOS setting on a host:
+        #biosConfigRef:
+        #  filePath: "example-hw.profile"
+        bmcAddress: "idrac-virtualmedia://dell-r640-008-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "three-nodes-bmc-secret"
+        bootMACAddress: "e4:43:4b:6d:14:d4"
+        # Use UEFISecureBoot to enable secure boot
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: /dev/sda
+        nodeNetwork:
+          interfaces:
+            - name: eno1
+              macAddress: "e4:43:4b:6d:14:d4"
+          config:
+            interfaces:
+              - name: eno1
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                    - ip: 10.6.56.25
+                      prefix-length: 24
+                ipv6:
+                  enabled: false
+            dns-resolver:
+              config:
+                search:
+                  - redhat.com
+                server:
+                  - 10.11.5.160
+                  - 10.2.70.215
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-interface: eno1
+                  next-hop-address: 10.6.56.254
+                  table-id: 254
