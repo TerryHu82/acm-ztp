@@ -28,6 +28,7 @@ spec:
       - cidr: 10.6.56.0/24
     serviceNetwork:
       - 172.30.0.0/16
+    networkType: OVNKubernetes
     userManagedNetworking: false
   provisionRequirements:
     controlPlaneAgents: 3
