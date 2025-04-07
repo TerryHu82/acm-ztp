@@ -1,13 +1,6 @@
 apiVersion: extensions.hive.openshift.io/v1beta1
 kind: AgentClusterInstall
-metadata:
-  annotations:
-    agent-install.openshift.io/install-config-overrides: |
-      {
-        "networking": {
-          "networkType": "OVNKubernetes"
-        }
-       }        
+metadata:       
     argocd.argoproj.io/sync-wave: "1"
     ran.openshift.io/ztp-gitops-generated: '{}'
   name: three-nodes
