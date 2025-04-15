@@ -7,14 +7,14 @@ metadata:
   name: three-nodes
   namespace: three-nodes
 spec:
-  loadBalancer:
-    type: UserManaged
-  apiVIP: 10.6.56.140
+#  loadBalancer:
+#    type: UserManaged
+  apiVIP: 10.6.56.7
   apiVIPs:
-    - 10.6.56.140
-  ingressVIP: 10.6.56.140
+    - 10.6.56.7
+  ingressVIP: 10.6.56.8
   ingressVIPs:
-    - 10.6.56.140    
+    - 10.6.56.8 
   clusterDeploymentRef:
     name: three-nodes
   imageSetRef:
@@ -29,7 +29,7 @@ spec:
       - cidr: 10.6.56.0/24
     serviceNetwork:
       - 172.30.0.0/16
-    userManagedNetworking: false
+#    userManagedNetworking: false
     networkType: OVNKubernetes
   provisionRequirements:
     controlPlaneAgents: 3
