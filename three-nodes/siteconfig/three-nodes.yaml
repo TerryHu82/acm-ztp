@@ -171,24 +171,34 @@ spec:
           interfaces:
             - name: eno1
               macAddress: "e4:43:4b:6c:d6:2c"
+            - name: eno2
+              macAddress: "e4:43:4b:6c:d6:2d"
           config:
             interfaces:
-              - name: eno1
-                type: ethernet
+              - name: bond0
+                description: Bonding eno1 and eno2
+                type: bond
                 state: up
+                link-aggregation:
+                  mode: active-backup
+                  options:
+                    miimon: '100'
+                  port:
+                  - eno1
+                  - eno2
+                mtu: 1500
+              - name: bond0.305
+                type: vlan
+                state: up
+                vlan:
+                  base-iface: bond0
+                  id: 305
                 ipv4:
                   enabled: true
-                  dhcp: false
                   address:
                   - ip: 10.6.56.23
                     prefix-length: 24
-                ipv6:
-                  enabled: false
-              - name: eno2
-                type: ethernet
-                state: down
-                ipv4:
-                  enabled: false
+                  dhcp: false
                 ipv6:
                   enabled: false
             dns-resolver:
