@@ -186,7 +186,11 @@ spec:
                   enabled: false
               - name: eno2
                 type: ethernet
-                state: down
+                state: up
+                ipv4:
+                  enabled: false
+                ipv6:
+                  enabled: false
             dns-resolver:
               config:
                 search:
