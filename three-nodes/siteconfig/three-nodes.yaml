@@ -241,6 +241,6 @@ spec:
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: eno1
+                next-hop-interface: bond0.305
                 next-hop-address: 10.6.56.254
                 table-id: 254
