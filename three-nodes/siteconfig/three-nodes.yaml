@@ -186,7 +186,7 @@ spec:
                   enabled: false
               - name: eno2
                 type: ethernet
-                state: up
+                state: down
                 ipv4:
                   enabled: false
                 ipv6:
