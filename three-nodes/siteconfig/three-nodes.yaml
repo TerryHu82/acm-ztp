@@ -226,6 +226,16 @@ spec:
                     prefix-length: 24
                 ipv6:
                   enabled: false
+              - name: eno2
+                type: ethernet
+                state: up
+                ipv4:
+                  enabled: true
+                  address:
+                  - ip: 10.6.56.243
+                    prefix-length: 24
+                ipv6:
+                  enabled: false
             dns-resolver:
               config:
                 search:
