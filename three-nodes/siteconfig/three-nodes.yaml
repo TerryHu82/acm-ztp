@@ -222,11 +222,8 @@ spec:
                 ipv4:
                   enabled: true
                   address:
-                  # For SNO sites with static IP addresses, the node-specific,
-                  # API and Ingress IPs should all be the same and configured on
-                  # the interface
                   - ip: 10.6.56.23
-                    prefix-length: 32
+                    prefix-length: 24
                 ipv6:
                   enabled: false
             dns-resolver:
