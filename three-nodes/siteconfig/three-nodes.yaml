@@ -166,7 +166,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot, UEFI to disable.
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: "/dev/sda"
+          deviceName: "/dev/disk/by-path/pci-0000:18:00.0-scsi-0:2:0:0"
         nodeNetwork:
           interfaces:
             - name: eno1
