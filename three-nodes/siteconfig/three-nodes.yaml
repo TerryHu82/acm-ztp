@@ -160,6 +160,8 @@ spec:
           add:
             BareMetalHost:
               bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
+        crSuppression:
+        - BareMetalHost
         # Optionally; This can be used to configure desired BIOS setting on a host:
         #biosConfigRef:
         #  filePath: "example-hw.profile"
