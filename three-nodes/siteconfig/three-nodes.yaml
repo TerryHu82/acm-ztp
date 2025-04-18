@@ -203,28 +203,19 @@ spec:
                   dhcp: false
                 ipv6:
                   enabled: false
-              - name: bond1
-                description: Bonding ens1f0 to ens1f3
-                type: bond
-                state: up
-                link-aggregation:
-                  mode: active-backup
-                  options:
-                    miimon: '100'
-                  port:
-                  - ens1f0
-                  - ens1f1
-                  - ens1f2
-                  - ens1f3
-                mtu: 1500
-                ipv4:
-                  enabled: true
-                  address:
-                  - ip: 10.6.56.250
-                    prefix-length: 24
-                  dhcp: false
-                ipv6:
-                  enabled: false
+              # disable ens1f0 to ens1f3
+              - name: ens1f0
+                type: ethernet
+                state: down
+              - name: ens1f1
+                type: ethernet
+                state: down
+              - name: ens1f2
+                type: ethernet
+                state: down
+              - name: ens1f3
+                type: ethernet
+                state: down
             dns-resolver:
               config:
                 search:
