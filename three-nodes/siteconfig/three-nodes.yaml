@@ -209,21 +209,25 @@ spec:
                 state: down
                 ipv4:
                   enabled: false
+                  dhcp: false
               - name: ens1f1
                 type: ethernet
                 state: down
                 ipv4:
                   enabled: false
+                  dhcp: false
               - name: ens1f2
                 type: ethernet
                 state: down
-              - name: ens1f3
                 ipv4:
                   enabled: false
+                  dhcp: false
+              - name: ens1f3
                 type: ethernet
                 state: down
                 ipv4:
                   enabled: false
+                  dhcp: false
             dns-resolver:
               config:
                 search:
