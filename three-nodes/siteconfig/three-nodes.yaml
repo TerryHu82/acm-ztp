@@ -207,15 +207,23 @@ spec:
               - name: ens1f0
                 type: ethernet
                 state: down
+                ipv4:
+                  enabled: false
               - name: ens1f1
                 type: ethernet
                 state: down
+                ipv4:
+                  enabled: false
               - name: ens1f2
                 type: ethernet
                 state: down
               - name: ens1f3
+                ipv4:
+                  enabled: false
                 type: ethernet
                 state: down
+                ipv4:
+                  enabled: false
             dns-resolver:
               config:
                 search:
