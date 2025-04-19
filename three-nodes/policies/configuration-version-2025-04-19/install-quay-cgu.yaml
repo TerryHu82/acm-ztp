@@ -1,0 +1,16 @@
+apiVersion: ran.openshift.io/v1alpha1
+kind: ClusterGroupUpgrade
+metadata:
+  name: day2-quay
+  namespace: ztp-policies
+spec:
+  clusters:
+  - three-nodes
+  enable: true
+  managedPolicies:
+  - three-nodes-install-quay
+  preCaching: false
+  remediationStrategy:
+    maxConcurrency: 1
+    timeout: 240
+
