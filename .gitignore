@@ -1,7 +1,8 @@
 # Sensitive and build artifacts
 pull-secret.json
 *.pem
-operators/
+/operators/
+!**/source-crs/operators/
 out-bak/
 sno1/deployment
 sno1/siteconfig/sno1-secret.yaml
