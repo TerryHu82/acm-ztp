@@ -1,0 +1,15 @@
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "three-nodes"
+  namespace: "ztp-policies"
+spec:
+  bindingRules: 
+    common: "true"
+    du-profile: "latest"
+  mcp: worker
+  remediationAction: inform
+  sourceFiles:
+    - fileName: operators/quaySub.yaml
+      policyName: "install-quay"
+
