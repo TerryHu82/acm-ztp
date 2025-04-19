@@ -4,3 +4,4 @@ resources:
   - policies-namespace.yaml
   - cluster-image-set.yaml
   - configuration-version-2025-04-19
+  - upgrade
