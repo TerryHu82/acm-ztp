@@ -4,7 +4,7 @@ metadata:
   name: update-three-nodes-41801-41822
   namespace: ztp-policies
 spec:
-  backup: true
+  backup: false
   clusters:
   - three-nodes
   enable: true
