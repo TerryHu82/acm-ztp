@@ -1,0 +1,27 @@
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "three-nodes-update-41801-41808"
+  namespace: "ztp-policies"
+spec:
+  bindingRules:
+    common: "true"
+    du-profile: "latest"
+  mcp: "master"
+  remediationAction: inform
+  sourceFiles:
+    - fileName: ClusterVersion.yaml
+      policyName: "version-41801-41808"
+      metadata:
+        name: version
+      spec:
+        channel: "stable-4.18"
+        desiredUpdate:
+          force: true
+          version: "4.18.8"
+        upstream: https://api.openshift.com/api/upgrades_info/v1/graph?channel=stable-4.18
+      status:
+        history:
+          - version: "4.18.8"
+            state: "Completed"
+
