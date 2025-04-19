@@ -11,6 +11,7 @@ spec:
   remediationAction: inform
   sourceFiles:
     - fileName: ClusterVersion.yaml
+      complianceType: mustnothave
       policyName: "version-41801-41808"
       metadata:
         name: version
