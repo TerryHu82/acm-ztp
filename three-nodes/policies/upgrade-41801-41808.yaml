@@ -11,8 +11,8 @@ spec:
   remediationAction: inform
   sourceFiles:
     - fileName: ClusterVersion.yaml
-      complianceType: musthave
-      policyName: "version-41801-41808"
+      complianceType: mustonlyhave
+      policyName: "platform-update"
       metadata:
         name: version
       spec:
