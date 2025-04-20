@@ -5,7 +5,7 @@ metadata:
 placementBindingDefaults:
     name: upgrade-placement-binding
 policyDefaults:
-    namespace: three-nodes
+    namespace: ztp-policies
     placement:
         labelSelector:
            common: "true"
