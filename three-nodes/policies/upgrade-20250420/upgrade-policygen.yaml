@@ -25,7 +25,7 @@ policies:
       policyAnnotations:
         ran.openshift.io/ztp-deploy-wave: "1"
       manifests:
-        - path: ../source-crs/ClusterVersion.yaml 
+        - path: source-crs/ClusterVersion.yaml 
           patches:
             - metadata:
                 name: version
