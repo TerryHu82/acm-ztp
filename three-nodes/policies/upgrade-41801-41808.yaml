@@ -1,7 +1,7 @@
 apiVersion: ran.openshift.io/v1
 kind: PolicyGenTemplate
 metadata:
-  name: "upgrade-4180141808"
+  name: "upgrade-41801-41808"
   namespace: "ztp-policies"
 spec:
   bindingRules:
