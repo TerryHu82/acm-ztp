@@ -1,15 +1,13 @@
 apiVersion: ran.openshift.io/v1alpha1
 kind: ClusterGroupUpgrade
 metadata:
-  name: update-three-nodes-41801-41822
+  name: cgu-upgrade
   namespace: ztp-policies
 spec:
-  backup: false
   clusters:
-  - three-nodes
+    - three-nodes
   enable: true
   managedPolicies:
-  - three-nodes-update-41801-41808-version-41801-41808
+    - upgrade-platform-upgrade
   remediationStrategy:
     maxConcurrency: 2
-    timeout: 15
