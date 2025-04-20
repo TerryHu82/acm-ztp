@@ -11,6 +11,17 @@ spec:
   remediationAction: inform
   sourceFiles:
     - fileName: ClusterVersion.yaml
-      complianceType: mustnothave
+      complianceType: musthave
       policyName: "version-41801-41808"
+      metadata:
+        name: version
+      spec:
+        channel: "stable-4.18"
+        desiredUpdate:
+          force: true
+          version: "4.18.8"
+      status:
+        history:
+          - version: "4.18.8"
+            state: "Completed"
 
