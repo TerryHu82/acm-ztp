@@ -8,13 +8,8 @@ policyDefaults:
     namespace: ztp-group-du-sno
     placement:
         labelSelector:
-            matchExpressions:
-                - key: common
-                  operator: in
-                  values: "true"
-                - key: du-profile
-                  operator: in
-                  values: "latest"
+           common: "true"
+           du-profile: "latest"
     remediationAction: inform
     severity: low
     namespaceSelector:
