@@ -1,7 +1,7 @@
 apiVersion: ran.openshift.io/v1
 kind: PolicyGenTemplate
 metadata:
-  name: "upgrade"
+  name: "upgrade-4180141808"
   namespace: "ztp-policies"
 spec:
   bindingRules:
@@ -11,17 +11,7 @@ spec:
   remediationAction: inform
   sourceFiles:
     - fileName: ClusterVersion.yaml
-      complianceType: musthave
-      policyName: "to-41808"
-      metadata:
-        name: version
-      spec:
-        channel: "stable-4.18"
-        desiredUpdate:
-          force: true
-          version: "4.18.8"
-      status:
-        history:
-          - version: "4.18.8"
-            state: "Completed"
+      complianceType: mustonlyhave
+      policyName: "version-41801-41808"
+
 
