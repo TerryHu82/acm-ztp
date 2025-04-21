@@ -8,6 +8,6 @@ spec:
     - three-nodes
   enable: true
   managedPolicies:
-    - upgrade-platform-upgrade
+    - upgrade-platform-update
   remediationStrategy:
     maxConcurrency: 2
