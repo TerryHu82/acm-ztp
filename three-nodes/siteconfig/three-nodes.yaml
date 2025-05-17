@@ -188,7 +188,7 @@ spec:
                              "label": "var-lib-containers",
                              "sizeMiB": 0,
                              "startMiB": 250000
-                          },
+                          }
                         ]
                     }
             ],
