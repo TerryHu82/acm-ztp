@@ -187,19 +187,19 @@ spec:
                             {
                                 "label": "var-lib-containers",
                                 "sizeMiB": 0,
-	        					            "startMiB": 250000
+                                "startMiB": 250000
                             },
                           ]
                     }
-                    ],
-                 "filesystems": [
+            ],
+            "filesystems": [
                             {
                                 "device": "/dev/disk/by-partlabel/containers",
                                 "format": "xfs",
-	        					            "mountOptions": [
-	        					              "defaults",
-	        					              "prjquota"
-	        					            ],
+                                "mountOptions": [
+                                "defaults",
+                                "prjquota"
+                                ],
                                 "path": "/var/lib/containers",
                                 "wipeFilesystem": true
                             }
@@ -215,7 +215,6 @@ spec:
                         ]
                     }
             }
-
         nodeNetwork:
           interfaces:
             - name: eno1
