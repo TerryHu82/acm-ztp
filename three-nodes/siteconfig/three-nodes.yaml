@@ -172,7 +172,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot, UEFI to disable.
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: "/dev/disk/by-id/wwn-0x61866da06192eb002cb92e5621324e3e"
+          deviceName: "/dev/disk/by-path/pci-0000:18:00.0-scsi-0:2:0:0"
         ignitionConfigOverride: |
             {
               "ignition": {
