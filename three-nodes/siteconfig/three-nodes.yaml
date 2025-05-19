@@ -156,10 +156,10 @@ spec:
                   table-id: 254
       - hostName: "dell-r640-006.three-nodes.terryhu.cc"
         role: "worker"
-#        crAnnotations:
-#          add:
-#            BareMetalHost:
-#              bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
+        crAnnotations:
+          add:
+            BareMetalHost:
+              bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
 #        crSuppression:
 #        - BareMetalHost
         # Optionally; This can be used to configure desired BIOS setting on a host:
