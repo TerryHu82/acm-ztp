@@ -154,25 +154,25 @@ spec:
                   next-hop-interface: eno1
                   next-hop-address: 10.6.56.254
                   table-id: 254
-      - hostName: "dell-r640-006.three-nodes.terryhu.cc"
-        role: "worker"
-        crAnnotations:
-          add:
-            BareMetalHost:
-              bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
-        crSuppression:
-        - BareMetalHost
-        # Optionally; This can be used to configure desired BIOS setting on a host:
-        #biosConfigRef:
-        #  filePath: "example-hw.profile"
-        bmcAddress: "idrac-virtualmedia+https://dell-r640-006-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
-        bmcCredentialsName:
-          name: "three-nodes-bmc-secret"
-        bootMACAddress: "e4:43:4b:6c:d6:2c"
-        # Use UEFISecureBoot to enable secure boot, UEFI to disable.
-        bootMode: "UEFI"
-        rootDeviceHints:
-          deviceName: "/dev/disk/by-path/pci-0000:18:00.0-scsi-0:2:0:0"
+#     - hostName: "dell-r640-006.three-nodes.terryhu.cc"
+#       role: "worker"
+#       crAnnotations:
+#         add:
+#           BareMetalHost:
+#             bmac.agent-install.openshift.io/remove-agent-and-node-on-delete: true
+#       crSuppression:
+#       - BareMetalHost
+#       # Optionally; This can be used to configure desired BIOS setting on a host:
+#       #biosConfigRef:
+#       #  filePath: "example-hw.profile"
+#       bmcAddress: "idrac-virtualmedia+https://dell-r640-006-drac.bkr.mgmt.lab.eng.rdu2.dc.redhat.com/redfish/v1/Systems/System.Embedded.1"
+#       bmcCredentialsName:
+#         name: "three-nodes-bmc-secret"
+#       bootMACAddress: "e4:43:4b:6c:d6:2c"
+#       # Use UEFISecureBoot to enable secure boot, UEFI to disable.
+#       bootMode: "UEFI"
+#       rootDeviceHints:
+#         deviceName: "/dev/disk/by-path/pci-0000:18:00.0-scsi-0:2:0:0"
 #        ignitionConfigOverride: |
 #            {
 #              "ignition": {
@@ -215,77 +215,77 @@ spec:
 #                ]
 #              }
 #            }
-        nodeNetwork:
-          interfaces:
-            - name: eno1
-              macAddress: "e4:43:4b:6c:d6:2c"
-            - name: eno2
-              macAddress: "e4:43:4b:6c:d6:2d"
-            - name: ens1f0
-              macAddress: "3c:fd:fe:79:2e:30"
-            - name: ens1f1
-              macAddress: "3c:fd:fe:79:2e:31"
-            - name: ens1f2
-              macAddress: "3c:fd:fe:79:2e:32"
-            - name: ens1f3
-              macAddress: "3c:fd:fe:79:2e:33"
-          config:
-            interfaces:
-              - name: bond0
-                description: Bonding eno1 and eno2
-                type: bond
-                state: up
-                link-aggregation:
-                  mode: active-backup
-                  options:
-                    miimon: '100'
-                  port:
-                  - eno1
-                  - eno2
-                mtu: 1500
-                ipv4:
-                  enabled: true
-                  address:
-                  - ip: 10.6.56.249
-                    prefix-length: 24
-                  dhcp: false
-                ipv6:
-                  enabled: false
-              # disable ens1f0 to ens1f3
-              - name: ens1f0
-                type: ethernet
-                state: down
-                ipv4:
-                  enabled: false
-                  dhcp: false
-              - name: ens1f1
-                type: ethernet
-                state: down
-                ipv4:
-                  enabled: false
-                  dhcp: false
-              - name: ens1f2
-                type: ethernet
-                state: down
-                ipv4:
-                  enabled: false
-                  dhcp: false
-              - name: ens1f3
-                type: ethernet
-                state: down
-                ipv4:
-                  enabled: false
-                  dhcp: false
-            dns-resolver:
-              config:
-                search:
-                - redhat.com
-                server:
-                - 10.11.5.160
-                - 10.2.70.215
-            routes:
-              config:
-              - destination: 0.0.0.0/0
-                next-hop-interface: bond0
-                next-hop-address: 10.6.56.254
-                table-id: 254
+#        nodeNetwork:
+#          interfaces:
+#            - name: eno1
+#              macAddress: "e4:43:4b:6c:d6:2c"
+#            - name: eno2
+#              macAddress: "e4:43:4b:6c:d6:2d"
+#            - name: ens1f0
+#              macAddress: "3c:fd:fe:79:2e:30"
+#            - name: ens1f1
+#              macAddress: "3c:fd:fe:79:2e:31"
+#            - name: ens1f2
+#              macAddress: "3c:fd:fe:79:2e:32"
+#            - name: ens1f3
+#              macAddress: "3c:fd:fe:79:2e:33"
+#          config:
+#            interfaces:
+#              - name: bond0
+#                description: Bonding eno1 and eno2
+#                type: bond
+#                state: up
+#                link-aggregation:
+#                  mode: active-backup
+#                  options:
+#                    miimon: '100'
+#                  port:
+#                  - eno1
+#                  - eno2
+#                mtu: 1500
+#                ipv4:
+#                  enabled: true
+#                  address:
+#                  - ip: 10.6.56.249
+#                    prefix-length: 24
+#                  dhcp: false
+#                ipv6:
+#                  enabled: false
+#              # disable ens1f0 to ens1f3
+#              - name: ens1f0
+#                type: ethernet
+#                state: down
+#                ipv4:
+#                  enabled: false
+#                  dhcp: false
+#              - name: ens1f1
+#                type: ethernet
+#                state: down
+#                ipv4:
+#                  enabled: false
+#                  dhcp: false
+#              - name: ens1f2
+#                type: ethernet
+#                state: down
+#                ipv4:
+#                  enabled: false
+#                  dhcp: false
+#              - name: ens1f3
+#                type: ethernet
+#                state: down
+#                ipv4:
+#                  enabled: false
+#                  dhcp: false
+#            dns-resolver:
+#              config:
+#                search:
+#                - redhat.com
+#                server:
+#                - 10.11.5.160
+#                - 10.2.70.215
+#            routes:
+#              config:
+#              - destination: 0.0.0.0/0
+#                next-hop-interface: bond0
+#                next-hop-address: 10.6.56.254
+#                table-id: 254
