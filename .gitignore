@@ -2,5 +2,5 @@
 #sno1/deployment
 clusters/sno1/siteconfig/sno1-secret.yaml
 #three-nodes/deployment
-clusters/three-nodes/secrets/three-nodes-secret.yaml
+clusters/three-nodes/secrets/
 
