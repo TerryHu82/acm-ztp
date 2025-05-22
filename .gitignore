@@ -1,13 +1,6 @@
 # Sensitive and build artifacts
-pull-secret.json
-*.pem
-/operators/
-!**/source-crs/operators/
-out-bak/
-sno1/deployment
+#sno1/deployment
 sno1/siteconfig/sno1-secret.yaml
-three-nodes/deployment
+#three-nodes/deployment
 three-nodes/siteconfig/three-nodes-secret.yaml
-find_free_ips.sh
-free_ips.txt
 

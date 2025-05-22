@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: three-nodes-policies-sub
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: three-nodes-policies
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: three-nodes-policies-sub
+  project: three-nodes-policy-app-project
+  source:
+    path: three-nodes/policies
+    repoURL: https://github.com/TerryHu82/acm-ztp.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

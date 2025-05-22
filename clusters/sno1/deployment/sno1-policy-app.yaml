@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: sno1-policies-sub
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sno1-policies
+  namespace: openshift-gitops
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sno1-policies-sub
+  project: sno1-policy-app-project
+  source:
+    path: sno1/policies
+    repoURL: https://github.com/TerryHu82/acm-ztp.git
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
