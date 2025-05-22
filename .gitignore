@@ -1,6 +1,6 @@
 # Sensitive and build artifacts
 #sno1/deployment
-sno1/siteconfig/sno1-secret.yaml
+clusters/sno1/siteconfig/sno1-secret.yaml
 #three-nodes/deployment
-three-nodes/secrets/three-nodes-secret.yaml
+clusters/three-nodes/secrets/three-nodes-secret.yaml
 
