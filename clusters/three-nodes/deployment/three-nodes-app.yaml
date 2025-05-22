@@ -14,7 +14,7 @@ spec:
     namespace: three-nodes-sub
   project: ztp-app-project
   source:
-    path: three-nodes/siteconfig
+    path: clusters/three-nodes/siteconfig
     repoURL: https://github.com/TerryHu82/acm-ztp.git
     targetRevision: master
   syncPolicy:

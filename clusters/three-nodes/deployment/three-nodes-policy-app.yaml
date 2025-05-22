@@ -14,7 +14,7 @@ spec:
     namespace: three-nodes-policies-sub
   project: three-nodes-policy-app-project
   source:
-    path: three-nodes/policies
+    path: clusters/three-nodes/policies
     repoURL: https://github.com/TerryHu82/acm-ztp.git
     targetRevision: master
   syncPolicy:
